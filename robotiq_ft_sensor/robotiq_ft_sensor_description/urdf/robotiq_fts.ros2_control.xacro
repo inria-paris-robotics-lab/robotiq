@@ -2,14 +2,13 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="robotiq_fts_ros2_control" params="
-    name
     use_fake_mode:=false
     max_retries:=1
     read_rate:=10
     ftdi_id:=''
     tf_prefix
   ">
-    <ros2_control name="${name}robotiq_ft_sensor" type="sensor">
+    <ros2_control name="${tf_prefix}robotiq_ft_sensor" type="sensor">
       <hardware>
           <plugin>robotiq_ft_sensor_hardware/RobotiqFTSensorHardware</plugin>
           <param name="use_fake_mode">${use_fake_mode}</param>
