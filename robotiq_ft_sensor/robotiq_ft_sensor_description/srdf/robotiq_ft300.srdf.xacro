@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    
+    <xacro:macro name="robotiq_ft300_tool_autocol" params="prefix">
+        <disable_collisions link1="${prefix}ft300_sensor" link2="${prefix}ft300_mounting_plate" reason="Adjacent"/>
+    </xacro:macro>
+
+    <xacro:macro name="robotiq_ft300_tool_col_with" params="prefix link">
+        <disable_collisions link1="${prefix}ft300_sensor" link2="${link}" reason="Never"/>
+        <disable_collisions link1="${prefix}ft300_mounting_plate" link2="${link}" reason="Never"/>
+    </xacro:macro>
+</robot>

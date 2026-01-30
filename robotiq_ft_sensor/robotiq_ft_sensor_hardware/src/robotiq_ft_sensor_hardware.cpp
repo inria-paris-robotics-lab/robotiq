@@ -167,7 +167,7 @@ RobotiqFTSensorHardware::on_activate(const rclcpp_lifecycle::State& /*previous_s
   options.arguments({ "--ros-args", "-r", "__node:=robotiq_ft_hardware_internal_" + info_.name });
   async_node_ = rclcpp::Node::make_shared("_", options);
   srv_zero_fts_ = async_node_->create_service<std_srvs::srv::Trigger>(
-      "/io_and_status_controller/zero_ftsensor",
+      "/robotiq_ft_hardware_internal_" + info_.name + "/zero_ftsensor",
       std::bind(&RobotiqFTSensorHardware::set_zero, this, std::placeholders::_1, std::placeholders::_2));
 
   timer_ = async_node_->create_wall_timer(std::chrono::milliseconds(read_rate_),
